@@ -29,8 +29,8 @@ public class JPATest01 {
 		// 3. empezar mi transacción
 		em.getTransaction().begin();
 		// proceso a realizar (persistencia)
-		// em.persist(u);
-		em.merge(u);
+		// em.persist(u); este comando solo se usa para registrar
+		em.merge(u); //es para actualizar pero ten en cuenta q depende de su codigo
 		// 4. confirmar la transacción
 		em.getTransaction().commit();
 	}

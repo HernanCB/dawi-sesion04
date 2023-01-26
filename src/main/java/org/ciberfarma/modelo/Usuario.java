@@ -7,8 +7,9 @@ import javax.persistence.Column;
 
 @Entity
 @Table(name = "tb_usuarios")
-@NamedQuery(name="Usuario.findAll",query ="select u * from Usuario u")
-@NamedQuery(name="Usuario.findAllxTipo",query ="select u * from Usuario u where u.tipo=:xtipo")
+@NamedQuery(name = "Usuario.findAll",query = "select u from Usuario u")
+@NamedQuery(name = "Usuario.findAllxTipo", query = "select u from Usuario u where u.tipo = :xtipo")
+
 public class Usuario { 
 	
 	@Id

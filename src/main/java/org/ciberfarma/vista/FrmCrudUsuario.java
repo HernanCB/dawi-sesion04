@@ -19,19 +19,33 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
-public class FrmCrudUsuario extends JFrame {
+public class FrmCrudUsuario extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
+	private JLabel lblNewLabel_6;
+	private JLabel lblNewLabel_7;
 	private JTextField txtCodigo;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
 	private JTextField txtUsuario;
 	private JTextField txtFchNac;
 	private JTextField txtTipo;
-	private JTextField txtEstado;
 	private JTextField txtClave;
+	private JTextField txtEstado;
+	private JButton btnRegistrar;
+	private JButton btnConsultar;
+	private JButton btnListado;
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
 
 	/**
 	 * Launch the application.
@@ -54,137 +68,162 @@ public class FrmCrudUsuario extends JFrame {
 	 */
 	public FrmCrudUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 671, 463);
+		setBounds(100, 100, 624, 547);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Codigo :");
-		lblNewLabel.setBounds(12, 13, 56, 16);
+		lblNewLabel = new JLabel("Código");
+		lblNewLabel.setBounds(12, 33, 56, 16);
 		contentPane.add(lblNewLabel);
 		
+		lblNewLabel_1 = new JLabel("Nombre");
+		lblNewLabel_1.setBounds(12, 75, 56, 16);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Apellido");
+		lblNewLabel_2.setBounds(12, 118, 56, 16);
+		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("Usuario");
+		lblNewLabel_3.setBounds(12, 160, 56, 16);
+		contentPane.add(lblNewLabel_3);
+		
+		lblNewLabel_4 = new JLabel("Fch Nac :");
+		lblNewLabel_4.setBounds(12, 200, 56, 16);
+		contentPane.add(lblNewLabel_4);
+		
+		lblNewLabel_5 = new JLabel("Tipo");
+		lblNewLabel_5.setBounds(12, 245, 56, 16);
+		contentPane.add(lblNewLabel_5);
+		
+		lblNewLabel_6 = new JLabel("Clave");
+		lblNewLabel_6.setBounds(269, 160, 56, 16);
+		contentPane.add(lblNewLabel_6);
+		
+		lblNewLabel_7 = new JLabel("Estado");
+		lblNewLabel_7.setBounds(269, 245, 56, 16);
+		contentPane.add(lblNewLabel_7);
+		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(92, 10, 116, 22);
+		txtCodigo.setBounds(80, 30, 259, 22);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
-		JLabel lblNombe = new JLabel("Nombe");
-		lblNombe.setBounds(12, 48, 56, 16);
-		contentPane.add(lblNombe);
-		
 		txtNombre = new JTextField();
-		txtNombre.setColumns(10);
-		txtNombre.setBounds(92, 45, 267, 22);
+		txtNombre.setBounds(80, 72, 259, 22);
 		contentPane.add(txtNombre);
-		
-		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(12, 91, 56, 16);
-		contentPane.add(lblApellido);
+		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
-		txtApellido.setColumns(10);
-		txtApellido.setBounds(92, 88, 267, 22);
+		txtApellido.setBounds(80, 115, 259, 22);
 		contentPane.add(txtApellido);
-		
-		JLabel lblUsuario = new JLabel("Usuario");
-		lblUsuario.setBounds(12, 123, 56, 16);
-		contentPane.add(lblUsuario);
+		txtApellido.setColumns(10);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setColumns(10);
-		txtUsuario.setBounds(92, 120, 116, 22);
+		txtUsuario.setBounds(80, 157, 116, 22);
 		contentPane.add(txtUsuario);
-		
-		JLabel lblFchNac = new JLabel("Fch Nac");
-		lblFchNac.setBounds(12, 155, 56, 16);
-		contentPane.add(lblFchNac);
+		txtUsuario.setColumns(10);
 		
 		txtFchNac = new JTextField();
-		txtFchNac.setColumns(10);
-		txtFchNac.setBounds(92, 152, 116, 22);
+		txtFchNac.setBounds(80, 197, 116, 22);
 		contentPane.add(txtFchNac);
-		
-		JLabel lblTipo = new JLabel("Tipo");
-		lblTipo.setBounds(12, 187, 56, 16);
-		contentPane.add(lblTipo);
+		txtFchNac.setColumns(10);
 		
 		txtTipo = new JTextField();
-		txtTipo.setColumns(10);
-		txtTipo.setBounds(92, 184, 116, 22);
+		txtTipo.setBounds(80, 242, 116, 22);
 		contentPane.add(txtTipo);
-		
-		JLabel lblEstado = new JLabel("Estado");
-		lblEstado.setBounds(258, 184, 56, 16);
-		contentPane.add(lblEstado);
-		
-		txtEstado = new JTextField();
-		txtEstado.setColumns(10);
-		txtEstado.setBounds(338, 181, 116, 22);
-		contentPane.add(txtEstado);
-		
-		JLabel lblClave = new JLabel("Clave");
-		lblClave.setBounds(258, 123, 56, 16);
-		contentPane.add(lblClave);
+		txtTipo.setColumns(10);
 		
 		txtClave = new JTextField();
-		txtClave.setColumns(10);
-		txtClave.setBounds(338, 120, 116, 22);
+		txtClave.setBounds(320, 157, 116, 22);
 		contentPane.add(txtClave);
+		txtClave.setColumns(10);
 		
-		JButton btnRegistrar = new JButton("Registrar");
-		btnRegistrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				registro();
-			}
-		});
-		btnRegistrar.setBounds(529, 44, 97, 25);
+		txtEstado = new JTextField();
+		txtEstado.setBounds(320, 242, 116, 22);
+		contentPane.add(txtEstado);
+		txtEstado.setColumns(10);
+		
+		btnRegistrar = new JButton("Registrar");
+		btnRegistrar.addActionListener(this);
+		btnRegistrar.setBounds(497, 44, 97, 25);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				consultar();
-			}
-		});
-		btnConsultar.setBounds(529, 99, 97, 25);
+		btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(this);
+		btnConsultar.setBounds(497, 96, 97, 25);
 		contentPane.add(btnConsultar);
 		
-		JButton btnListado = new JButton("Listado");
-		btnListado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				listado();
-			}
-		});
-		btnListado.setBounds(529, 151, 97, 25);
+		btnListado = new JButton("Listado");
+		btnListado.addActionListener(this);
+		btnListado.setBounds(497, 156, 97, 25);
 		contentPane.add(btnListado);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 216, 629, 187);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 283, 582, 204);
 		contentPane.add(scrollPane);
 		
-		JTextArea txtS = new JTextArea();
+		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
 	}
-
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnListado) {
+			actionPerformedBtnListado(e);
+		}
+		if (e.getSource() == btnConsultar) {
+			actionPerformedBtnConsultar(e);
+		}
+		if (e.getSource() == btnRegistrar) {
+			actionPerformedBtnRegistrar(e);
+		}
+	}
+	protected void actionPerformedBtnRegistrar(ActionEvent e) {
+		registro();
+	}
+	protected void actionPerformedBtnConsultar(ActionEvent e) {
+		consultar();
+	}
+	protected void actionPerformedBtnListado(ActionEvent e) {
+		listado();
+	}
+	
 	void listado() {
 		//Obtener listado usuarios de los usuarios
 		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("jpa_sesion01");
 		EntityManager em = fabrica.createEntityManager();
 		
+		///TypedQuery<Usuario> consulta = em.createNamedQuery("Usuario.findAll",Usuario.class);
+		//List<Usuario> listadoUsuarios = consulta.getResultList();
 		
+		List<Usuario> listadoUsuarios;
+		
+		if (txtTipo.getText().isEmpty()) {
+			 listadoUsuarios = em.createNamedQuery("Usuario.findAll",Usuario.class).getResultList();
+		}else {
+			int tipo = Integer.parseInt(txtTipo.getText());
+			 listadoUsuarios = em.createNamedQuery("Usuario.findAllxTipo",Usuario.class).setParameter
+					("xtipo", tipo).getResultList();
+		}
+			
 		//muestro el listado en el txt/pdf
-		
+		txtS.setText("Listado de Usuarios\n");
+		for (Usuario u : listadoUsuarios) {
+			txtS.append(u.getCodigo()+"\t" + u.getNombre() + "\t" + u.getApellido() + "\n");
+		}
 		
 	}
 
 	void consultar() {
+		//obtener el codigo a buscar
 		int codigo = Integer.parseInt(txtCodigo.getText());
 		//buscar el codigo en los usuarios, si existe muestra los datos, sino avisa
 		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("jpa_sesion01");
 		EntityManager em = fabrica.createEntityManager();
 		
 		Usuario u = em.find(Usuario.class, codigo);
+		
 		
 		if(u == null) {
 			JOptionPane.showMessageDialog(this,"Usuario NO Registrado");
